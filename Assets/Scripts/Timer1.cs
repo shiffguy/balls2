@@ -11,6 +11,8 @@ public class Timer1 : MonoBehaviour
 {
     public float timeLeft;
     public Text startText;
+    private int temp;
+    private string level;
 
     void Start()
     {
@@ -34,8 +36,11 @@ public class Timer1 : MonoBehaviour
                 GameControl.lives -= 1;
                 BallLauncher.launched = false;
                 timeLeft = 5.0f;
-                SceneManager.LoadScene(GameControl.level);
-            }
+                level = "Scene" + GameControl.level;
+                temp = GameControl.level;
+                SceneManager.LoadScene(level);
+                GameControl.level = temp;
+            }    
         }
     }
 }
